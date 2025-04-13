@@ -32,4 +32,28 @@ Public Class Form2
         conn.Close()
 
     End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim q As String
+        q = "Select * from Students Where 1=1 "
+
+        If String.IsNullOrWhiteSpace(txtName.Text) = False Then
+            q = q + " AND sName LIKE '%" + txtName.Text + "%'"
+        End If
+        If String.IsNullOrWhiteSpace(txtSemester.Text) = False Then
+            q = q + " AND Semester LIKE '%" + txtSemester.Text + "%'"
+        End If
+        If String.IsNullOrWhiteSpace(txtCellphone.Text) = False Then
+            q = q + " AND Cell LIKE '%" + txtCellphone.Text + "%'"
+        End If
+
+        conn.Open()
+        cmd = conn.CreateCommand()
+        cmd.CommandType = CommandType.Text
+        dA = New OleDbDataAdapter(q, conn)
+        dT.Clear()
+        dA.Fill(dT)
+        DataGridView1.DataSource = dT
+        conn.Close()
+    End Sub
 End Class

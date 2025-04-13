@@ -41,6 +41,7 @@ Partial Class Form2
         BtnSave = New Button()
         DataGridView1 = New DataGridView()
         btnShow = New Button()
+        btnSearch = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -135,11 +136,21 @@ Partial Class Form2
         btnShow.Text = "Show"
         btnShow.UseVisualStyleBackColor = True
         ' 
+        ' btnSearch
+        ' 
+        btnSearch.Location = New Point(251, 333)
+        btnSearch.Name = "btnSearch"
+        btnSearch.Size = New Size(94, 29)
+        btnSearch.TabIndex = 11
+        btnSearch.Text = "Search"
+        btnSearch.UseVisualStyleBackColor = True
+        ' 
         ' Form2
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1200, 678)
+        Controls.Add(btnSearch)
         Controls.Add(btnShow)
         Controls.Add(DataGridView1)
         Controls.Add(BtnSave)
@@ -169,4 +180,5 @@ Partial Class Form2
     Friend WithEvents BtnSave As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnShow As Button
+    Friend WithEvents btnSearch As Button
 End Class
